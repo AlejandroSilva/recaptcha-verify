@@ -35,8 +35,10 @@ app.get('/check', function(req, res){
         }
 
         if(response.success){
-            // save session.. create user.. save form data.. render page, return json.. etc.
+            // success, user is a human
+            // save session, create user, save form data, render page, return json, etc.
         }else{
+            // user is not a human...
             // show warning, render page, return a json, etc.
         }
         res.status(200).render('check', {

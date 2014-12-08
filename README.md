@@ -19,24 +19,22 @@ Use the **site key** to display the widget in the page (inside a form).
 For a more info on how to display the widget, see the [documentation](https://developers.google.com/recaptcha/docs/display).
 
 ```html
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Document title</title>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
-    </head>
-    <body>
-    <form action="/nodeform">
-        <input type="text"/>
-        <input type="text"/>
-
-        <div class="g-recaptcha" data-sitekey="SITE_KEY"></div>
-
-        <input type="submit">
-    </form>
-    </body>
-    </html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document title</title>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+<form action="/nodeform">
+    <input type="text"/>
+    <input type="text"/>
+    <div class="g-recaptcha" data-sitekey="SITE_KEY"></div>
+    <input type="submit">
+</form>
+</body>
+</html>
 ```
 
 ## Backend Usage with express.js
@@ -58,32 +56,32 @@ Callback returns an *error* when something is wrong.
 The *response* object is described in the [documentation](https://developers.google.com/recaptcha/docs/verify).
 
 ```javascript
-    var Recaptcha = require('recaptcha');
-    var recaptcha = new Recaptcha({
-        secret: 'SECRET_KEY',
-        verbose: true
+var Recaptcha = require('recaptcha');
+var recaptcha = new Recaptcha({
+    secret: 'SECRET_KEY',
+    verbose: true
+});
+app.get('/check', function(req, res){
+    // get the user response (from reCAPTCHA)
+    var userResponse = req.query['g-recaptcha-response'];
+
+    recaptcha.checkResponse(userResponse, function(error, response){
+        if(error){
+            // an internal error?
+            res.status(400).render('400', {
+                message: error.toString()
+            });
+            return;
+        }
+        if(response.success){
+            res.status(200).send('the user is a HUMAN :)');
+            // save session.. create user.. save form data.. render page, return json.. etc.
+        }else{
+            res.status(200).send('the user is a ROBOT :(');
+            // show warning, render page, return a json, etc.
+        }
     });
-
-    app.get('/check', function(req, res){
-        // get the user response (from reCAPTCHA)
-        var userResponse = req.query['g-recaptcha-response'];
-
-        recaptcha.checkResponse(userResponse, function(error, response){
-            if(error){
-                // an internal error?
-                res.status(400).render('400', {
-                    message: error.toString()
-                });
-                return;
-            }
-
-            if(response.success){
-                // save session.. create user.. save form data.. render page, return json.. etc.
-            }else{
-                // show warning, render page, return a json, etc.
-            }
-        });
-    });
+});
 ```
 
 ## Contact
