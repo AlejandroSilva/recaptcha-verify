@@ -1,0 +1,26 @@
+{
+  "name": "recaptcha-verify",
+  "version": "0.1.0",
+  "description": "a generic recaptcha validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlejandroSilva/recaptcha-verify"
+  },
+  "keywords": [
+    "recaptcha",
+    "captcha",
+    "veritfy",
+    "robot",
+    "tunning"
+  ],
+  "author": "Alejandro Silva Aliaga",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AlejandroSilva/recaptcha-verify/issues"
+  },
+  "homepage": "https://github.com/AlejandroSilva/recaptcha-verify"
+}
