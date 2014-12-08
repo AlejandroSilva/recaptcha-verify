@@ -31,7 +31,7 @@ For a more info on how to display the widget, see the [documentation](https://de
         <input type="text"/>
         <input type="text"/>
 
-        <div class="g-recaptcha" data-sitekey="6LcH7v4SAAAAABoxkpmqx4Qbt6Q-nVBqMwRkRCtw"></div>
+        <div class="g-recaptcha" data-sitekey="SITE_KEY"></div>
 
         <input type="submit">
     </form>
@@ -88,4 +88,4 @@ The *response* object is described in the [documentation](https://developers.goo
 
 ## Contact
 
-For more information on AngularJS please check out [https://github.com/AlejandroSilva](https://github.com/AlejandroSilva) or send me and email to pm5k.sk[at]gmail.com
+For more information, please check out [https://github.com/AlejandroSilva](https://github.com/AlejandroSilva) or send me and email to pm5k.sk[at]gmail.com

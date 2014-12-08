@@ -7,7 +7,7 @@ var swig = require('swig');
 //var Recaptcha = require('recaptcha');
 var Recaptcha = require('../index');
 var recaptcha = new Recaptcha({
-    secret: '6LcH7v4SAAAAAPA4ha10THoLd8Yh8H11-PJwCdwp',
+    secret: 'SECRET_KEY',
     verbose: true
 });
 
