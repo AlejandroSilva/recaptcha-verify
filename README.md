@@ -56,7 +56,7 @@ Callback returns an *error* when something is wrong.
 The *response* object is described in the [documentation](https://developers.google.com/recaptcha/docs/verify).
 
 ```javascript
-var Recaptcha = require('recaptcha');
+var Recaptcha = require('recaptcha-verify');
 var recaptcha = new Recaptcha({
     secret: 'SECRET_KEY',
     verbose: true
